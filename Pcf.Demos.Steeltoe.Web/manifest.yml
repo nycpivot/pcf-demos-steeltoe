@@ -1,0 +1,12 @@
+﻿---
+applications:
+-   name: pcf-demos-steeltoe-web
+    buildpack: dotnet_core_buildpack
+    disk_quota: 1G
+    memory: 256M
+    services:
+    -   pcf-demos-config-server
+    -   pcf-demos-service-registry
+    -   pcf-demos-circuit-breaker-dashboard
+    env:
+        ASPNETCORE_ENVIRONMENT: staging
