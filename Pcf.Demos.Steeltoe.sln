@@ -7,17 +7,16 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{485E5234-034
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{978EB165-CD65-4554-919B-5F47573DA0E2}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pcf.Demos.Steeltoe.ServiceDiscovery.Api", "Pcf.Demos.Steeltoe.ServiceDiscovery.Api\Pcf.Demos.Steeltoe.ServiceDiscovery.Api.csproj", "{16555423-D24E-4124-A6D2-396BFA08C6FF}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pcf.Demos.Steeltoe.Api", "Pcf.Demos.Steeltoe.Api\Pcf.Demos.Steeltoe.Api.csproj", "{99FC8E75-EBE0-42F8-9DC1-18D4F9A78279}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pcf.Demos.Steeltoe.Web", "Pcf.Demos.Steeltoe.Web\Pcf.Demos.Steeltoe.Web.csproj", "{50B57E03-6A7B-4624-A4C7-177A5D515967}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pcf.Demos.Steeltoe.Web", "Pcf.Demos.Steeltoe.Web\Pcf.Demos.Steeltoe.Web.csproj", "{50B57E03-6A7B-4624-A4C7-177A5D515967}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{556135FB-DED0-4299-9FCB-8BC6B8318431}"
 	ProjectSection(SolutionItems) = preProject
 		application-development.properties = application-development.properties
 		application-production.properties = application-production.properties
 		application-staging.properties = application-staging.properties
+		config.json = config.json
 	EndProjectSection
 EndProject
 Global
@@ -26,10 +25,6 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{16555423-D24E-4124-A6D2-396BFA08C6FF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{16555423-D24E-4124-A6D2-396BFA08C6FF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{16555423-D24E-4124-A6D2-396BFA08C6FF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{16555423-D24E-4124-A6D2-396BFA08C6FF}.Release|Any CPU.Build.0 = Release|Any CPU
 		{99FC8E75-EBE0-42F8-9DC1-18D4F9A78279}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{99FC8E75-EBE0-42F8-9DC1-18D4F9A78279}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{99FC8E75-EBE0-42F8-9DC1-18D4F9A78279}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -43,7 +38,6 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{16555423-D24E-4124-A6D2-396BFA08C6FF} = {978EB165-CD65-4554-919B-5F47573DA0E2}
 		{99FC8E75-EBE0-42F8-9DC1-18D4F9A78279} = {978EB165-CD65-4554-919B-5F47573DA0E2}
 		{50B57E03-6A7B-4624-A4C7-177A5D515967} = {485E5234-0340-4A1F-925F-A357E4CAC526}
 	EndGlobalSection
