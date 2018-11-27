@@ -1,0 +1,14 @@
+﻿@{
+    ViewData["Title"] = "Environment";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>Application Name</h3>
+<p>@ViewBag.ApplicationName</p>
+
+<h3>Application Settings</h3>
+<p>@ViewData["VCAP_APPLICATION"]</p>
+
+<h3>Services</h3>
+<p>@ViewData["VCAP_SERVICES"]</p>

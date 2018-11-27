@@ -7,17 +7,17 @@ using System.Threading.Tasks;
 
 namespace Pcf.Demos.Steeltoe.Web.Services
 {
-    public class DiscoveryService : IDiscoveryService
+    public class ServiceDiscoveryService : IServiceDiscoveryService
     {
         private readonly HttpClient http;
 
-        public DiscoveryService(IDiscoveryClient client)
+        public ServiceDiscoveryService(IDiscoveryClient client)
         {
             var handler = new DiscoveryHttpClientHandler(client);
 
             this.http = new HttpClient(handler, false)
             {
-                BaseAddress = new Uri("http://pcf-demos-steeltoe-service-discovery-api/api/discovery/")
+                BaseAddress = new Uri("http://pcf-demos-steeltoe-api/api/service-discovery/")
             };
         }
 

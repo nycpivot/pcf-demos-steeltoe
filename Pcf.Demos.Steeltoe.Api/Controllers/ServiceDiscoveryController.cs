@@ -5,12 +5,12 @@ using Steeltoe.Extensions.Configuration.CloudFoundry;
 namespace Pcf.Demos.Steeltoe.Api.Controllers
 {
     [Produces("application/json")]
-    [Route("api/discovery")]
-    public class DiscoveryController : Controller
+    [Route("api/service-discovery")]
+    public class ServiceDiscoveryController : Controller
     {
         private readonly CloudFoundryApplicationOptions appOptions;
 
-        public DiscoveryController(
+        public ServiceDiscoveryController(
             IOptions<CloudFoundryApplicationOptions> appOptions)
         {
             this.appOptions = appOptions.Value;

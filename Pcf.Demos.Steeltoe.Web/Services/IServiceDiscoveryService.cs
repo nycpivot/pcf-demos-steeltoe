@@ -3,7 +3,7 @@ using System.Threading.Tasks;
 
 namespace Pcf.Demos.Steeltoe.Web.Services
 {
-    public interface IDiscoveryService
+    public interface IServiceDiscoveryService
     {
         Task<CloudFoundryApplicationOptions> GetServiceDetails();
     }

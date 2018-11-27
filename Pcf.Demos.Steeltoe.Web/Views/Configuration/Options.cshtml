@@ -1,0 +1,47 @@
+﻿@{
+    ViewData["Title"] = "Options";
+}
+
+<h2>@ViewData["Title"]</h2>
+
+<h3>Application Settings</h3>
+<table>
+    <tr>
+        <td>App Id</td>
+        <td>@ViewData["AppId"]</td>
+    </tr>
+    <tr>
+        <td>App Name</td>
+        <td>@ViewData["AppName"]</td>
+    </tr>
+    <tr>
+        <td>URI</td>
+        <td>@ViewData["URI"]</td>
+    </tr>
+</table>
+
+<h3>Services</h3>
+<table>
+    <tr>
+        <td>Label</td>
+        <td>@ViewData["ServiceLabel"]</td>
+    </tr>
+    <tr>
+        <td>Name</td>
+        <td>@ViewData["ServiceName"]</td>
+    </tr>
+    <tr>
+        <td>Client Id</td>
+        <td>@ViewData["ClientId"]</td>
+    </tr>
+    <tr>
+        <td>Client Secret</td>
+        <td>@ViewData["ClientSecret"]</td>
+    </tr>
+    <tr>
+        <td>URI</td>
+        <td>@ViewData["ServiceUri"]</td>
+    </tr>
+</table>
+
+<p>@ViewData["Message"]</p>

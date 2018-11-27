@@ -1,0 +1,40 @@
+﻿@{
+    ViewData["Title"] = "Service Discovery";
+}
+
+<h2>Service Discovery</h2>
+
+<br />
+<br />
+
+<div style="text-align: center;">
+    <table style="width: 60%;">
+        <tr>
+            <td style="width: 20%;">
+                <img style="width: 100px; height: 100px;" src="~/images/web-server.png" />
+            </td>
+            <td>
+                <img src="~/images/line.png" />
+            </td>
+            <td style="width: 20%;">
+                <img style="width: 100px; height: 100px;" src="~/images/web-server.png" />
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <br />
+                <div style="text-decoration: underline;">Web</div>
+                <div>@ViewBag.ClientIP</div>
+            </td>
+            <td>
+                <br />
+                &nbsp;
+            </td>
+            <td>
+                <br />
+                <div style="text-decoration: underline;">Service</div>
+                <div>@ViewBag.ServiceIP</div>
+            </td>
+        </tr>
+    </table>
+</div>

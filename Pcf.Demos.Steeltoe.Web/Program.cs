@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
-using Steeltoe.Extensions.Configuration.CloudFoundry;
+using Pivotal.Extensions.Configuration.ConfigServer;
 
 namespace Pcf.Demos.Steeltoe.Web
 {
@@ -23,7 +23,8 @@ namespace Pcf.Demos.Steeltoe.Web
                         .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true, true);
                 })
                 .UseCloudFoundryHosting()
-                .AddCloudFoundry() //VCAP_APPLICATION & VCAP_SERVICES configuration data
+                //.AddCloudFoundry() //VCAP_APPLICATION & VCAP_SERVICES configuration data
+                .AddConfigServer()
                 .UseStartup<Startup>()
                 .Build();
     }

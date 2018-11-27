@@ -28,13 +28,14 @@ namespace Pcf.Demos.Steeltoe.Web
             //discovery
             services.AddDiscoveryClient(Configuration);
 
-            services.AddSingleton<IDiscoveryService, DiscoveryService>();
-
             //hystrix/circuit breaker
             services.AddHystrixCommand<CircuitBreakerCommand>(
                 "pcf-demos-steeltoe-web", Configuration);
 
-            services.AddHystrixMetricsStream(Configuration);
+            //services.AddHystrixMetricsStream(Configuration);
+
+            services.AddSingleton<IServiceDiscoveryService, ServiceDiscoveryService>();
+            services.AddSingleton<ICircuitBreakerService, CircuitBreakerService>();
 
             services.AddMvc();
         }
