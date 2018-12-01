@@ -23,10 +23,26 @@ namespace Pcf.Demos.Steeltoe.Web.Controllers.Configuration
             try
             {
                 //read app settings
-                ViewData["AppId"] = appOptions.ApplicationId;
-                ViewData["AppName"] = appOptions.ApplicationName;
-                ViewData["URI"] = appOptions.ApplicationUris != null
+                ViewBag.ApplicationId = appOptions.ApplicationId;
+                ViewBag.ApplicationName = appOptions.ApplicationName;
+                ViewBag.Uri = appOptions.ApplicationUris != null
                     && appOptions.ApplicationUris.Length > 0 ? appOptions.ApplicationUris[0] : "";
+                ViewBag.ApplicationVersion = appOptions.ApplicationVersion;
+                ViewBag.CloudFoundryApi = appOptions.CF_Api;
+                ViewBag.DiskLimit = appOptions.DiskLimit;
+                ViewBag.InstanceIndex = appOptions.InstanceIndex;
+                ViewBag.InstanceId = appOptions.InstanceId;
+                ViewBag.InstanceIp = appOptions.InstanceIP;
+                ViewBag.InternalIp = appOptions.InternalIP;
+                ViewBag.Limits = appOptions.Limits;
+                ViewBag.MemoryLimit = appOptions.MemoryLimit;
+                ViewBag.Name = appOptions.Name;
+                ViewBag.Port = appOptions.Port;
+                ViewBag.SpaceId = appOptions.SpaceId;
+                ViewBag.SpaceName = appOptions.SpaceName;
+                ViewBag.Start = appOptions.Start;
+                ViewBag.Uris = appOptions.Uris;
+                ViewBag.Version = appOptions.Version;
 
                 //read first service settings
                 if (serviceOptions.ServicesList != null && serviceOptions.ServicesList.Count > 0)

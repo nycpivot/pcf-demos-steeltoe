@@ -1,7 +1,16 @@
 ﻿<h2>Environment Variables</h2>
 
+<h3>Application Name</h3>
+<img src="~/images/vcap-application-name.png" />
+<br />
+<h4>@ViewBag.ApplicationName</h4>
+
+<hr />
+
 <h3>VCAP_APPLICATION</h3>
 <p>@Html.Raw(ViewBag.ApplicationSettings)</p>
+
+<hr />
 
 <h3>VCAP_SERVICES</h3>
 <p>@Html.Raw(ViewBag.ServiceSettings)</p>

@@ -4,7 +4,6 @@ using Microsoft.Extensions.Options;
 using Pcf.Demos.Steeltoe.Web.Services.Discovery;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 using System.Collections.Generic;
-using System.Linq;
 
 namespace Pcf.Demos.Steeltoe.Web.Controllers
 {
