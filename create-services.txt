@@ -1,0 +1,3 @@
+cf create-service p-config-server trial pcf-demos-config-server -c config.json
+cf create-service p-service-registry trial pcf-demos-service-registry
+cf create-service p-circuit-breaker-dashboard trial pcf-demos-circuit-breaker-dashboard

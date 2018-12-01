@@ -2,11 +2,11 @@
 applications:
 -   name: pcf-demos-steeltoe-web
     buildpack: dotnet_core_buildpack
-    disk_quota: 1G
+    disk_quota: 512M
     memory: 256M
     services:
     -   pcf-demos-config-server
     -   pcf-demos-service-registry
     -   pcf-demos-circuit-breaker-dashboard
     env:
-        ASPNETCORE_ENVIRONMENT: staging
+        ASPNETCORE_ENVIRONMENT: production

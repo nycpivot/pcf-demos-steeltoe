@@ -1,7 +1,18 @@
-﻿
+﻿@model IEnumerable<ProductViewModel>
+
 @{
     ViewData["Title"] = "Index";
 }
 
 <h3>@ViewBag.WorkingSet64</h3>
 <h3>@ViewBag.TotalProcessorTime</h3>
+
+@foreach(var item in Model)
+{
+    <div class="row">
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
+        <div class="col">col</div>
+    </div>
+}

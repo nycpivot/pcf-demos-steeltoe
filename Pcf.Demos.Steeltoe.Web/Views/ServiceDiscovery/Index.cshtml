@@ -7,33 +7,55 @@
 <br />
 <br />
 
-<div style="text-align: center;">
-    <table style="width: 60%;">
+<div>
+    <table style="width: 75%;">
         <tr>
             <td style="width: 20%;">
-                <img style="width: 100px; height: 100px;" src="~/images/web-server.png" />
+                <div style="text-align: center;">
+                    <img style="width: 100px; height: 100px;" src="~/images/web-server.png" />
+                </div>
             </td>
             <td>
-                <img src="~/images/line.png" />
+                <div style="text-align: center;">
+                    <img src="~/images/line.png" />
+                </div>
             </td>
             <td style="width: 20%;">
-                <img style="width: 100px; height: 100px;" src="~/images/web-server.png" />
+                <div style="text-align: center;">
+                    <img style="width: 100px; height: 100px;" src="~/images/web-server.png" />
+                </div>
             </td>
         </tr>
         <tr>
-            <td>
-                <br />
-                <div style="text-decoration: underline;">Web</div>
-                <div>@ViewBag.ClientIP</div>
+            <td style="vertical-align: top;">
+                <div style="text-align: center;">
+                    <br />
+                    <div style="text-decoration: underline;">Web</div>
+                    <div style="font-style: italic;">pcf-demos-steeltoe-web</div>
+                    <br />
+                    <div style="font-weight: bold;">@ViewBag.ClientIP</div>
+                </div>
             </td>
-            <td>
+            <td style="vertical-align: top;">
                 <br />
-                &nbsp;
+                <div style="text-align: center;">
+                    <a href="http://pcf-demos-steeltoe-api.cfapps.io/api/service-discovery/" target="_blank">
+                        http://pcf-demos-steeltoe-api/api/service-discovery/
+                    </a>
+                </div>
             </td>
-            <td>
-                <br />
-                <div style="text-decoration: underline;">Service</div>
-                <div>@ViewBag.ServiceIP</div>
+            <td style="vertical-align: top;">
+                <div style="text-align: center;">
+                    <br />
+                    <div style="text-decoration: underline;">Service</div>
+                    <div style="font-style: italic;">pcf-demos-steeltoe-api</div>
+                    <br />
+                    @foreach(var ip in ViewBag.UsedIPs)
+                    {
+                        <div style="text-decoration: line-through;">@ip</div>
+                    }
+                    <div style="font-weight: bold;">@ViewBag.ServiceIP</div>
+                </div>
             </td>
         </tr>
     </table>

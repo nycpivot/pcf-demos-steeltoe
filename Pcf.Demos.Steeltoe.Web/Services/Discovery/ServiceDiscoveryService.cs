@@ -1,11 +1,13 @@
 ﻿using Newtonsoft.Json;
+using Pcf.Demos.Steeltoe.Web.Models;
 using Steeltoe.Common.Discovery;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 using System;
+using System.Net;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Pcf.Demos.Steeltoe.Web.Services
+namespace Pcf.Demos.Steeltoe.Web.Services.Discovery
 {
     public class ServiceDiscoveryService : IServiceDiscoveryService
     {
@@ -21,12 +23,17 @@ namespace Pcf.Demos.Steeltoe.Web.Services
             };
         }
 
-        public async Task<CloudFoundryApplicationOptions> GetServiceDetails()
+        public async Task<CustomCloudFoundryApplicationOptions> GetServiceDetails()
         {
             var response = http.GetAsync(String.Empty).Result;
             var json = await response.Content.ReadAsStringAsync();
 
-            var appOptions = JsonConvert.DeserializeObject<CloudFoundryApplicationOptions>(json);
+            var appOptions = JsonConvert.DeserializeObject<CustomCloudFoundryApplicationOptions>(json);
+
+            //var ip = IPAddress.Parse(appOptions.InstanceIP);
+            //var host = Dns.GetHostEntry(ip);
+
+            //appOptions.ServerName = host.HostName;
 
             return appOptions;
         }

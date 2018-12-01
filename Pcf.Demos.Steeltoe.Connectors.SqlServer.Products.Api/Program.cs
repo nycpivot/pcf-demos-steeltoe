@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Microsoft.Extensions.Configuration;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 
-namespace Pcf.Demos.Steeltoe.Fallback.Api
+namespace Pcf.Demos.Steeltoe.Connectors.SqlServer.Products.Api
 {
     public class Program
     {
@@ -14,7 +15,11 @@ namespace Pcf.Demos.Steeltoe.Fallback.Api
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseCloudFoundryHosting()
-                .AddCloudFoundry()
+                .ConfigureAppConfiguration((context, config) =>
+                {
+                    config.AddJsonFile("appsettings.json");
+                })
+                //.AddCloudFoundry()
                 .UseStartup<Startup>()
                 .Build();
     }

@@ -1,0 +1,8 @@
+﻿---
+applications:
+-   name: pcf-demos-steeltoe-fallback-api
+    buildpack: dotnet_core_buildpack
+    disk_quota: 512M
+    memory: 256M
+    services:
+    -   pcf-demos-service-registry

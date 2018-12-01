@@ -1,7 +1,58 @@
 ﻿@{
-    ViewData["Title"] = "Configuration";
+    ViewData["Title"] = "App Settings";
 }
+
+<style>
+    td {
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px;
+    }
+</style>
 
 <h2>@ViewData["Title"]</h2>
 
-<h3>@ViewData["Setting"]</h3>
+<br />
+
+<table>
+    <tr>
+        <td>1.</td>
+        <td>Define an app settings file for the appropriate environment.</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><img src="~/images/appsettings.production.png" /></td>
+    </tr>
+    <tr>
+        <td>2.</td>
+        <td>Specify the respective environment in the manifest file.</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><img src="~/images/web-manifest.png" /></td>
+    </tr>
+    <tr>
+        <td>3.</td>
+        <td>Setup the configuration in the Program.cs file.</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><img src="~/images/web-program.png" /></td>
+    </tr>
+    <tr>
+        <td>4.</td>
+        <td>Read the setting when opening the Configuration...App Settings page.</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><img src="~/images/web-app-settings-controller.png" /></td>
+    </tr>
+    <tr>
+        <td>5.</td>
+        <td>Output the result to the browser.</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>@ViewBag.ConnectionString</td>
+    </tr>
+</table>

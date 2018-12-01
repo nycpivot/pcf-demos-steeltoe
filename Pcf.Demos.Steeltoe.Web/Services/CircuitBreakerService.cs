@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
@@ -7,7 +8,7 @@ using Steeltoe.Common.Discovery;
 
 namespace Pcf.Demos.Steeltoe.Web.Services
 {
-    public class CircuitBreakerService : ICircuitBreakerService
+    public class CircuitBreakerService : ICircuitBreakerProductService
     {
         private readonly HttpClient http;
 
@@ -15,15 +16,14 @@ namespace Pcf.Demos.Steeltoe.Web.Services
         {
             var handler = new DiscoveryHttpClientHandler(client);
 
-            this.http = new HttpClient(handler, false)
-            {
-                BaseAddress = new Uri("http://pcf-demos-steeltoe-api/api/circuit-breaker/")
-            };
+            this.http = new HttpClient(handler, false);
         }
 
         public async Task<ServiceDetailsModel> GetServiceDetails()
         {
-            var response = http.GetAsync(String.Empty).Result;
+            var url = "http://pcf-demos-steeltoe-api/api/circuit-breaker";
+
+            var response = http.GetAsync(url).Result;
             var json = await response.Content.ReadAsStringAsync();
 
             var model = JsonConvert.DeserializeObject<ServiceDetailsModel>(json);
@@ -31,9 +31,26 @@ namespace Pcf.Demos.Steeltoe.Web.Services
             return model;
         }
 
-        public Task<ServiceDetailsModel> GetServiceDetailsFallback()
+        public async Task<ServiceDetailsModel> GetServiceDetailsFallback()
         {
-            return null;
+            var url = "http://pcf-demos-steeltoe-fallback-api/api/circuit-breaker-fallback";
+
+            var response = http.GetAsync(url).Result;
+            var json = await response.Content.ReadAsStringAsync();
+
+            var model = JsonConvert.DeserializeObject<ServiceDetailsModel>(json);
+
+            return model;
+        }
+
+        Task<IEnumerable<ProductViewModel>> ICircuitBreakerProductService.GetServiceDetails()
+        {
+            throw new NotImplementedException();
+        }
+
+        Task<IEnumerable<ProductViewModel>> ICircuitBreakerProductService.GetServiceDetailsFallback()
+        {
+            throw new NotImplementedException();
         }
     }
 }

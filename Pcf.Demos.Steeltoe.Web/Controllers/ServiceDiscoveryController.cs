@@ -1,7 +1,10 @@
-﻿using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Pcf.Demos.Steeltoe.Web.Services;
+using Pcf.Demos.Steeltoe.Web.Services.Discovery;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
+using System.Collections.Generic;
+using System.Linq;
 
 namespace Pcf.Demos.Steeltoe.Web.Controllers
 {
@@ -24,7 +27,21 @@ namespace Pcf.Demos.Steeltoe.Web.Controllers
 
             var serviceOptions = discoveryService.GetServiceDetails().Result;
 
+            var usedIPs = new List<string>();
+            foreach (var ip in HttpContext.Session.Keys)
+            {
+                if (ip != serviceOptions.InstanceIP)
+                {
+                    usedIPs.Add(ip);
+                }
+            }
+
+            ViewBag.UsedIPs = usedIPs;
+            
+            HttpContext.Session.SetString(serviceOptions.InstanceIP, serviceOptions.InstanceIP);
+
             ViewBag.ServiceIP = serviceOptions.InstanceIP;
+            //ViewBag.ServerName = serviceOptions.ServerName;
 
             return View();
         }

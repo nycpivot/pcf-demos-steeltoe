@@ -1,4 +1,4 @@
-﻿using Microsoft.AspNetCore;
+﻿ using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Pivotal.Extensions.Configuration.ConfigServer;
@@ -14,17 +14,17 @@ namespace Pcf.Demos.Steeltoe.Web
 
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
+                .UseCloudFoundryHosting()
                 .ConfigureAppConfiguration((context, config) =>
                 {
                     var env = context.HostingEnvironment;
 
-                    config
-                        .AddJsonFile("appsettings.json", true, true)
-                        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true, true);
+                    config.AddJsonFile("appsettings.json", true, true)
+                        .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true, true)
+                        .AddConfigServer();
                 })
-                .UseCloudFoundryHosting()
-                //.AddCloudFoundry() //VCAP_APPLICATION & VCAP_SERVICES configuration data
-                .AddConfigServer()
+                //.AddCloudFoundry() //VCAP_APPLICATION & VCAP_SERVICES, but seems to work without adding it
+                //.AddConfigServer() //moved this line to the above block
                 .UseStartup<Startup>()
                 .Build();
     }

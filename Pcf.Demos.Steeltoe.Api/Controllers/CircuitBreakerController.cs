@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Mvc;
 using Pcf.Demos.Steeltoe.Api.Domain;
 using System.Diagnostics;
+using System.Threading;
 
 namespace Pcf.Demos.Steeltoe.Api.Controllers
 {

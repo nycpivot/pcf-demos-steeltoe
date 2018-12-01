@@ -14,7 +14,7 @@ namespace Pcf.Demos.Steeltoe.Web.Controllers.Configuration
 
         public IActionResult Index()
         {
-            ViewData["Setting"] = configuration["Setting"];
+            ViewBag.Setting = configuration["ConnectionString"];
 
             return View();
         }
