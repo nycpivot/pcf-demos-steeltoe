@@ -42,8 +42,9 @@
     <tr>
         <td>&nbsp;</td>
         <td>
-            <div style="font-style: italic;">
+            <div style="font-weight: normal; font-style: italic;">
                 cf create-service  p-config-server  pcf-demos-config-server  -c config.json
+                <br />
                 <br />
                 cf bind-service  pcf-demos-steeltoe-web  pcf-demos-config-server
             </div>
