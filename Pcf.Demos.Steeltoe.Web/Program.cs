@@ -1,4 +1,4 @@
-﻿ using Microsoft.AspNetCore;
+﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Pivotal.Extensions.Configuration.ConfigServer;
@@ -21,7 +21,8 @@ namespace Pcf.Demos.Steeltoe.Web
 
                     config.AddJsonFile("appsettings.json", true, true)
                         .AddJsonFile($"appsettings.{env.EnvironmentName}.json", true, true)
-                        .AddConfigServer();
+                        .AddEnvironmentVariables()
+                        .AddConfigServer(env);
                 })
                 //.AddCloudFoundry() //VCAP_APPLICATION & VCAP_SERVICES, but seems to work without adding it
                 //.AddConfigServer() //moved this line to the above block

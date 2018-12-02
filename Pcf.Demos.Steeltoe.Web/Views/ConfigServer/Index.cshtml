@@ -1,7 +1,84 @@
-﻿@{
-    ViewData["Title"] = "Configuration";
-}
+﻿<style>
+    td {
+        font-size: 16px;
+        font-weight: bold;
+        padding: 10px;
+    }
+</style>
 
-<h2>@ViewData["Title"]</h2>
+<h2>Spring Config Server</h2>
 
-<h3>@ViewData["Message"]</h3>
+<br />
+
+<table>
+    <tr>
+        <td>1.</td>
+        <td>Create a properties file with environmental specific settings.</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><img src="~/images/application-production-properties.png" /></td>
+    </tr>
+    <tr>
+        <td>2.</td>
+        <td>Host each environmental properties file in a git repository.</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><img src="~/images/git-config.png"  style="width: 1000px;"/></td>
+    </tr>
+    <tr>
+        <td>3.</td>
+        <td>Create a json file with the following uri to the git repository.</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><img src="~/images/config-json.png" /></td>
+    </tr>
+    <tr>
+        <td>4.</td>
+        <td>Create and bind a p-config-server service with the config file as parameter.</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>
+            <div style="font-style: italic;">
+                cf create-service  p-config-server  pcf-demos-config-server  -c config.json
+                <br />
+                cf bind-service  pcf-demos-steeltoe-web  pcf-demos-config-server
+            </div>
+        </td>
+    </tr>
+    <tr>
+        <td>5.</td>
+        <td>Setup the configuration in the Program.cs file to ensure the settings from the repository are loaded.</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><img src="~/images/web-program-add-config-server.png" /></td>
+    </tr>
+    <tr>
+        <td>6.</td>
+        <td>Read the settings when opening the Configuration...Config Server page.</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td><img src="~/images/config-server-controller.png" /></td>
+    </tr>
+    <tr>
+        <td>7.</td>
+        <td>Output the values to the browser.</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>@ViewBag.ConnectionString</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>@ViewBag.UserName</td>
+    </tr>
+    <tr>
+        <td>&nbsp;</td>
+        <td>@ViewBag.Password</td>
+    </tr>
+</table>
