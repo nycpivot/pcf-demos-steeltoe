@@ -2,9 +2,11 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Pcf.Demos.Steeltoe.Connectors.Redis.Products.Api.Services;
 using Pivotal.Discovery.Client;
+using Steeltoe.CloudFoundry.Connector.Redis;
 
-namespace Pcf.Demos.Steeltoe.Fallback.Api
+namespace Pcf.Demos.Steeltoe.Connectors.Redis.Products.Api
 {
     public class Startup
     {
@@ -20,6 +22,10 @@ namespace Pcf.Demos.Steeltoe.Fallback.Api
         {
             services.AddDiscoveryClient(Configuration);
 
+            services.AddSingleton<IProductsService, ProductsService>();
+
+            services.AddDistributedRedisCache(Configuration);
+
             services.AddMvc();
         }
 
@@ -34,6 +40,8 @@ namespace Pcf.Demos.Steeltoe.Fallback.Api
             app.UseDiscoveryClient();
 
             app.UseMvc();
+
+            ProductsService.Load(app.ApplicationServices);
         }
     }
 }

@@ -7,6 +7,5 @@ applications:
     services:
     -   pcf-demos-config-server
     -   pcf-demos-service-registry
-    -   pcf-demos-circuit-breaker-dashboard
     env:
         ASPNETCORE_ENVIRONMENT: production

@@ -8,7 +8,7 @@ using Steeltoe.Common.Discovery;
 
 namespace Pcf.Demos.Steeltoe.Web.Services
 {
-    public class CircuitBreakerService : ICircuitBreakerProductService
+    public class CircuitBreakerService : ICircuitBreakerService
     {
         private readonly HttpClient http;
 
@@ -16,41 +16,20 @@ namespace Pcf.Demos.Steeltoe.Web.Services
         {
             var handler = new DiscoveryHttpClientHandler(client);
 
-            this.http = new HttpClient(handler, false);
+            this.http = new HttpClient(handler, false)
+            {
+                BaseAddress = new Uri("http://pcf-demos-steeltoe-api/api/circuit-breaker/")
+            };
         }
 
-        public async Task<ServiceDetailsModel> GetServiceDetails()
+        public async Task<IEnumerable<ProductViewModel>> GetCustomerWishlist()
         {
-            var url = "http://pcf-demos-steeltoe-api/api/circuit-breaker";
-
-            var response = http.GetAsync(url).Result;
+            var response = http.GetAsync(String.Empty).Result;
             var json = await response.Content.ReadAsStringAsync();
 
-            var model = JsonConvert.DeserializeObject<ServiceDetailsModel>(json);
+            var products = JsonConvert.DeserializeObject<IEnumerable<ProductViewModel>>(json);
 
-            return model;
-        }
-
-        public async Task<ServiceDetailsModel> GetServiceDetailsFallback()
-        {
-            var url = "http://pcf-demos-steeltoe-fallback-api/api/circuit-breaker-fallback";
-
-            var response = http.GetAsync(url).Result;
-            var json = await response.Content.ReadAsStringAsync();
-
-            var model = JsonConvert.DeserializeObject<ServiceDetailsModel>(json);
-
-            return model;
-        }
-
-        Task<IEnumerable<ProductViewModel>> ICircuitBreakerProductService.GetServiceDetails()
-        {
-            throw new NotImplementedException();
-        }
-
-        Task<IEnumerable<ProductViewModel>> ICircuitBreakerProductService.GetServiceDetailsFallback()
-        {
-            throw new NotImplementedException();
+            return products;
         }
     }
 }

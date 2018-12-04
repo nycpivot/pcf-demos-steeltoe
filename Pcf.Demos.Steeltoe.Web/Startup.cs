@@ -3,9 +3,7 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Pcf.Demos.Steeltoe.Web.Services;
-using Pcf.Demos.Steeltoe.Web.Services.Discovery;
 using Pivotal.Discovery.Client;
-using Steeltoe.CircuitBreaker.Hystrix;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 using System;
 
@@ -30,14 +28,8 @@ namespace Pcf.Demos.Steeltoe.Web
             //discovery
             services.AddDiscoveryClient(Configuration);
 
-            //hystrix/circuit breaker
-            services.AddHystrixCommand<CircuitBreakerCommand>(
-                "pcf-demos-steeltoe-web", Configuration);
-
-            //services.AddHystrixMetricsStream(Configuration);
-
             services.AddSingleton<IServiceDiscoveryService, ServiceDiscoveryService>();
-            services.AddSingleton<ICircuitBreakerProductService, CircuitBreakerService>();
+            services.AddSingleton<ICircuitBreakerService, CircuitBreakerService>();
 
             services.AddDistributedMemoryCache();
             services.AddSession(options =>

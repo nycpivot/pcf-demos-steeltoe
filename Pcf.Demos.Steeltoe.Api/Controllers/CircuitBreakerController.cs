@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Pcf.Demos.Steeltoe.Api.Domain;
-using System.Diagnostics;
-using System.Threading;
+using Pcf.Demos.Steeltoe.Api.Commands;
 
 namespace Pcf.Demos.Steeltoe.Api.Controllers
 {
@@ -9,14 +7,20 @@ namespace Pcf.Demos.Steeltoe.Api.Controllers
     [Route("api/circuit-breaker")]
     public class CircuitBreakerController : Controller
     {
+        private readonly CircuitBreakerCustomerWishlistCommand circuitBreakerCustomerWishlistCommand;
+
+        public CircuitBreakerController(
+            CircuitBreakerCustomerWishlistCommand circuitBreakerCustomerWishlistCommand)
+        {
+            this.circuitBreakerCustomerWishlistCommand = circuitBreakerCustomerWishlistCommand;
+        }
+
         public IActionResult Get()
         {
-            var serviceDetails = new ServiceDetails();
+            var products = circuitBreakerCustomerWishlistCommand
+                .GetCustomerWishlist().Result;
 
-            serviceDetails.WorkingSet64 = Process.GetCurrentProcess().WorkingSet64.ToString();
-            serviceDetails.TotalProcessorTime = Process.GetCurrentProcess().TotalProcessorTime.TotalSeconds.ToString();
-
-            return Ok(serviceDetails);
+            return Ok(products);
         }
     }
 }

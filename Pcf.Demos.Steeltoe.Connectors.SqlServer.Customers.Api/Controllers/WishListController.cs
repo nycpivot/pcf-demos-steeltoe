@@ -1,7 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using System.Linq;
-using static Microsoft.EntityFrameworkCore.DbLoggerCategory;
 
 namespace Pcf.Demos.Steeltoe.Connectors.SqlServer.Customers.Api.Controllers
 {
@@ -18,8 +16,6 @@ namespace Pcf.Demos.Steeltoe.Connectors.SqlServer.Customers.Api.Controllers
 
         public IActionResult Get()
         {
-            //context.GetIt();
-
             var wishlist = context.WishList.ToList();
 
             return Ok(wishlist);

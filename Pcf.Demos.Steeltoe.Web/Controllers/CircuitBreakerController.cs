@@ -5,32 +5,19 @@ namespace Pcf.Demos.Steeltoe.Web.Controllers
 {
     public class CircuitBreakerController : Controller
     {
-        private readonly CircuitBreakerCommand circuitBreakerCommand;
+        private readonly ICircuitBreakerService circuitBreakerService;
 
-        public CircuitBreakerController(CircuitBreakerCommand circuitBreakerCommand)
+        public CircuitBreakerController(ICircuitBreakerService circuitBreakerService)
         {
-            this.circuitBreakerCommand = circuitBreakerCommand;
+            this.circuitBreakerService = circuitBreakerService;
         }
 
         public IActionResult Index()
         {
-            var serviceDetailsModel = circuitBreakerCommand.GetServiceDetails().Result;
-
-            //ViewBag.WorkingSet64 = serviceDetailsModel.WorkingSet64;
-            //ViewBag.TotalProcessorTime = serviceDetailsModel.TotalProcessorTime;
+            ViewBag.Products = circuitBreakerService
+                .GetCustomerWishlist().Result;
 
             return View();
         }
-
-        //[HttpGet]
-        //public IActionResult Get()
-        //{
-        //    var serviceDetailsModel = circuitBreakerCommand.GetServiceDetails().Result;
-
-        //    ViewBag.WorkingSet64 = serviceDetailsModel.WorkingSet64;
-        //    ViewBag.TotalProcessorTime = serviceDetailsModel.TotalProcessorTime;
-
-        //    return Ok(serviceDetailsModel);
-        //}
     }
 }

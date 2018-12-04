@@ -15,12 +15,7 @@ namespace Pcf.Demos.Steeltoe.Connectors.SqlServer.Customers.Api
         public static IWebHost BuildWebHost(string[] args) =>
             WebHost.CreateDefaultBuilder(args)
                 .UseCloudFoundryHosting()
-                .ConfigureAppConfiguration((context, config) =>
-                {
-                    config.AddJsonFile("appsettings.json")
-                        .AddCloudFoundry();
-                })
-                //.AddCloudFoundry()
+                .AddCloudFoundry()
                 .UseStartup<Startup>()
                 .Build();
     }

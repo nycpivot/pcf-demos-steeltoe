@@ -1,7 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
-using Pcf.Demos.Steeltoe.Web.Services.Discovery;
+using Pcf.Demos.Steeltoe.Web.Services;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 using System.Collections.Generic;
 

@@ -13,11 +13,16 @@
     <PackageReference Include="Microsoft.AspNetCore.All" Version="2.0.8" />
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.0.3" />
     <PackageReference Include="Pivotal.Discovery.ClientCore" Version="2.1.1" />
-    <PackageReference Include="Steeltoe.Extensions.Configuration.CloudFoundryCore" Version="2.1.1" />
+    <PackageReference Include="Pivotal.Extensions.Configuration.ConfigServerCore" Version="2.1.1" />
+    <PackageReference Include="Steeltoe.CloudFoundry.Connector.Redis" Version="1.1.0" />
   </ItemGroup>
 
   <ItemGroup>
     <DotNetCliToolReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Tools" Version="2.0.4" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Pcf.Demos.Steeltoe.Domain.Products\Pcf.Demos.Steeltoe.Domain.Products.csproj" />
   </ItemGroup>
 
   <ItemGroup>

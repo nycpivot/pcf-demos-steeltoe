@@ -5,7 +5,7 @@ using System;
 using System.Net.Http;
 using System.Threading.Tasks;
 
-namespace Pcf.Demos.Steeltoe.Web.Services.Discovery
+namespace Pcf.Demos.Steeltoe.Web.Services
 {
     public class ServiceDiscoveryService : IServiceDiscoveryService
     {
@@ -27,11 +27,6 @@ namespace Pcf.Demos.Steeltoe.Web.Services.Discovery
             var json = await response.Content.ReadAsStringAsync();
 
             var appOptions = JsonConvert.DeserializeObject<CloudFoundryApplicationOptions>(json);
-
-            //var ip = IPAddress.Parse(appOptions.InstanceIP);
-            //var host = Dns.GetHostEntry(ip);
-
-            //appOptions.ServerName = host.HostName;
 
             return appOptions;
         }

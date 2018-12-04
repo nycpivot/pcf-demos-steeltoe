@@ -1,8 +1,9 @@
 ﻿using Microsoft.AspNetCore;
 using Microsoft.AspNetCore.Hosting;
+using Pivotal.Extensions.Configuration.ConfigServer;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 
-namespace Pcf.Demos.Steeltoe.Fallback.Api
+namespace Pcf.Demos.Steeltoe.Connectors.Redis.Products.Api
 {
     public class Program
     {

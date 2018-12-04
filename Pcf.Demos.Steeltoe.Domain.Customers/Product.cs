@@ -1,6 +1,6 @@
-﻿namespace Pcf.Demos.Steeltoe.Connectors.SqlServer.Customers.Api.Domain
+﻿namespace Pcf.Demos.Steeltoe.Domain.Customers
 {
-    public class WishList
+    public class Product
     {
         public int Id { get; set; }
         public int ProductId { get; set; }

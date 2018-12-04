@@ -5,4 +5,5 @@ applications:
     disk_quota: 512M
     memory: 256M
     services:
+    -   pcf-demos-service-registry
     -   pcf-demos-sqlserver-customers

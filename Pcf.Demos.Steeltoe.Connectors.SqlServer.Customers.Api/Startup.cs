@@ -2,6 +2,7 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Pivotal.Discovery.Client;
 using Steeltoe.CloudFoundry.Connector.SqlServer.EFCore;
 
 namespace Pcf.Demos.Steeltoe.Connectors.SqlServer.Customers.Api
@@ -18,7 +19,10 @@ namespace Pcf.Demos.Steeltoe.Connectors.SqlServer.Customers.Api
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddDbContext<CustomersContext>(options => options.UseSqlServer(Configuration));
+            services.AddDbContext<CustomersContext>(
+                options => options.UseSqlServer(Configuration));
+
+            services.AddDiscoveryClient(Configuration);
 
             services.AddMvc();
         }
@@ -30,6 +34,8 @@ namespace Pcf.Demos.Steeltoe.Connectors.SqlServer.Customers.Api
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseDiscoveryClient();
 
             app.UseMvc();
         }

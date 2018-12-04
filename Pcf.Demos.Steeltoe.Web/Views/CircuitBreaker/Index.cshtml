@@ -1,18 +1,12 @@
-﻿@model IEnumerable<ProductViewModel>
+﻿<h2>Circuit Breaker</h2>
 
-@{
-    ViewData["Title"] = "Index";
-}
-
-<h3>@ViewBag.WorkingSet64</h3>
-<h3>@ViewBag.TotalProcessorTime</h3>
-
-@foreach(var item in Model)
-{
-    <div class="row">
-        <div class="col">col</div>
-        <div class="col">col</div>
-        <div class="col">col</div>
-        <div class="col">col</div>
-    </div>
-}
+<table class="table table-striped">
+    @foreach (var item in ViewBag.Products)
+    {
+        <tr>
+            <td>@item.Id</td>
+            <td>@item.Name</td>
+            <td>@item.Price</td>
+        </tr>
+    }
+</table>

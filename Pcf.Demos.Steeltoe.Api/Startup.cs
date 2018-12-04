@@ -2,7 +2,10 @@
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
+using Pcf.Demos.Steeltoe.Api.Commands;
+using Pcf.Demos.Steeltoe.Api.Services;
 using Pivotal.Discovery.Client;
+using Steeltoe.CircuitBreaker.Hystrix;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
 
 namespace Pcf.Demos.Steeltoe.Api
@@ -25,6 +28,14 @@ namespace Pcf.Demos.Steeltoe.Api
 
             //discovery
             services.AddDiscoveryClient(Configuration);
+
+            services.AddSingleton<ICircuitBreakerCustomerWishlistService, CircuitBreakerCustomerWishlistService>();
+
+            //hystrix/circuit breaker
+            services.AddHystrixCommand<CircuitBreakerCustomerWishlistCommand>(
+                "pcf-demos-steeltoe-api", Configuration);
+
+            //services.AddHystrixMetricsStream(Configuration);
 
             services.AddMvc();
         }
