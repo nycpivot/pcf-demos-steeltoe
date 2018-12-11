@@ -32,15 +32,13 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RabbitMq", "RabbitMq", "{16
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Redis", "Redis", "{E2197A87-5B41-4AF2-B13D-B5454D90E549}"
 EndProject
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Discovery", "Discovery", "{02F0FB18-FBF0-42D8-9106-79C6F9420C04}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pcf.Demos.Steeltoe.Connectors.Redis.Products.Api", "Pcf.Demos.Steeltoe.Connectors.Redis.Products.Api\Pcf.Demos.Steeltoe.Connectors.Redis.Products.Api.csproj", "{AD9FA7B0-70E4-474C-A150-D606BB797570}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Domain", "Domain", "{B914582D-AFBC-43D0-8CE4-2C5FA9AAA8AC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pcf.Demos.Steeltoe.Domain.Customers", "Pcf.Demos.Steeltoe.Domain.Customers\Pcf.Demos.Steeltoe.Domain.Customers.csproj", "{BED25761-CA85-4563-B5AF-6EB496EE5BCD}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pcf.Demos.Steeltoe.Domain.Customers", "Pcf.Demos.Steeltoe.Domain.Customers\Pcf.Demos.Steeltoe.Domain.Customers.csproj", "{BED25761-CA85-4563-B5AF-6EB496EE5BCD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Pcf.Demos.Steeltoe.Domain.Products", "Pcf.Demos.Steeltoe.Domain.Products\Pcf.Demos.Steeltoe.Domain.Products.csproj", "{F54C994A-43C1-4D5F-9E02-35E8869F1175}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Pcf.Demos.Steeltoe.Domain.Products", "Pcf.Demos.Steeltoe.Domain.Products\Pcf.Demos.Steeltoe.Domain.Products.csproj", "{F54C994A-43C1-4D5F-9E02-35E8869F1175}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -89,7 +87,6 @@ Global
 		{09321C2E-CF3A-4867-A2BF-1CE09908C5A3} = {36E78049-65CF-4383-8E59-AAF7B54F60C0}
 		{1611EE9F-340B-404D-90F4-5821B78FF519} = {0F294312-2927-446A-B217-23C4F9CDC724}
 		{E2197A87-5B41-4AF2-B13D-B5454D90E549} = {0F294312-2927-446A-B217-23C4F9CDC724}
-		{02F0FB18-FBF0-42D8-9106-79C6F9420C04} = {978EB165-CD65-4554-919B-5F47573DA0E2}
 		{AD9FA7B0-70E4-474C-A150-D606BB797570} = {E2197A87-5B41-4AF2-B13D-B5454D90E549}
 		{BED25761-CA85-4563-B5AF-6EB496EE5BCD} = {B914582D-AFBC-43D0-8CE4-2C5FA9AAA8AC}
 		{F54C994A-43C1-4D5F-9E02-35E8869F1175} = {B914582D-AFBC-43D0-8CE4-2C5FA9AAA8AC}
