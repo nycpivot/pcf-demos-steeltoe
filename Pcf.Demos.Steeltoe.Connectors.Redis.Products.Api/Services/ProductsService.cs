@@ -37,20 +37,6 @@ namespace Pcf.Demos.Steeltoe.Connectors.Redis.Products.Api.Services
                         var response = http.GetAsync(productsUri).Result;
                         var json = response.Content.ReadAsStringAsync().Result;
 
-                        //var products = JsonConvert.DeserializeObject<IEnumerable<Product>>(json);
-
-                        //var products = new List<Product>()
-                        //{
-                        //    new Product() { Id = 1, Name = "Laptop", Price = 1399.00M },
-                        //    new Product() { Id = 2, Name = "Phone", Price = 799.00M },
-                        //    new Product() { Id = 3, Name = "Television", Price = 1900.00M },
-                        //    new Product() { Id = 4, Name = "Speakers", Price = 250.00M },
-                        //    new Product() { Id = 5, Name = "Display", Price = 395.00M },
-                        //    new Product() { Id = 6, Name = "Tablet", Price = 475.00M }
-                        //};
-
-                        //var json = JsonConvert.SerializeObject(products);
-
                         cache.SetString("Products", json);
                     }
                 }

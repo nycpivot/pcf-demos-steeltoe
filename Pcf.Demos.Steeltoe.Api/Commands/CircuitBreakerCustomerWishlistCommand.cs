@@ -38,7 +38,8 @@ namespace Pcf.Demos.Steeltoe.Api.Commands
                 Id = -1,
                 ProductId = p.Id,
                 ProductName = p.Name,
-                Price = p.Price
+                Price = p.Price,
+                Image = p.Image
             }).ToList();
 
             return wishlist;
