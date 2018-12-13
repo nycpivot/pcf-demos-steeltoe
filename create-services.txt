@@ -1,3 +1,9 @@
 cf create-service p-config-server trial pcf-demos-config-server -c config.json
 cf create-service p-service-registry trial pcf-demos-service-registry
 cf create-service p-circuit-breaker-dashboard trial pcf-demos-circuit-breaker-dashboard
+
+pcf-demos-steeltoe-connectors-redis-products-api
+pcf-demos-steeltoe-connectors-sqlserver-products-api
+pcf-demos-steeltoe-connectors-sqlserver-customers-api
+pcf-demos-steeltoe-api
+pcf-demos-steeltoe-web

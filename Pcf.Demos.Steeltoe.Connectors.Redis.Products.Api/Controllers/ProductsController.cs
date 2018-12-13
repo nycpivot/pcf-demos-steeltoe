@@ -1,5 +1,4 @@
 ﻿using Microsoft.AspNetCore.Mvc;
-using Microsoft.Extensions.Caching.Distributed;
 using Pcf.Demos.Steeltoe.Connectors.Redis.Products.Api.Services;
 
 namespace Pcf.Demos.Steeltoe.Connectors.Redis.Products.Api.Controllers

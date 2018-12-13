@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using Pcf.Demos.Steeltoe.Domain.Products;
 
 namespace Pcf.Demos.Steeltoe.Connectors.SqlServer.Products.Api
 {
