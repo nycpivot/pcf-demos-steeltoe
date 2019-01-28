@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Linq;
 
 namespace Pcf.Demos.Steeltoe.Connectors.SqlServer.Products.Api.Controllers
@@ -14,11 +15,20 @@ namespace Pcf.Demos.Steeltoe.Connectors.SqlServer.Products.Api.Controllers
             this.context = context;
         }
 
+        [HttpGet]
         public IActionResult Get()
         {
             var products = context.Products.ToList();
 
             return Ok(products);
+        }
+
+        [HttpDelete]
+        public IActionResult Delete()
+        {
+            Environment.Exit(-1);
+
+            return NoContent();
         }
     }
 }

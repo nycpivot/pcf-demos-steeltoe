@@ -1,6 +1,17 @@
-﻿@{
-    ViewData["Title"] = "Service Discovery";
-}
+﻿<script type="text/javascript">
+    $(document).ready(function (){
+        $('#crash').click(function () {
+            $.ajax({
+                method: "get",
+                url: "/servicediscovery/delete",
+                success: function (data) {
+                    alert("Come back to this page in a minute or two.");
+                    document.location.href = "/";
+                }
+            });
+        })
+    });
+</script>
 
 <h2>Service Discovery</h2>
 
@@ -50,13 +61,25 @@
                     <div style="text-decoration: underline;">Service</div>
                     <div style="font-style: italic;">pcf-demos-steeltoe-api</div>
                     <br />
-                    @foreach(var ip in ViewBag.UsedIPs)
+                    @foreach (var ip in ViewBag.UsedIPs)
                     {
                         <div style="text-decoration: line-through;">@ip</div>
                     }
                     <div style="font-weight: bold;">@ViewBag.ServiceIP</div>
+                    <br />
+                    <a id="crash" href="#">Crash</a>
                 </div>
             </td>
         </tr>
     </table>
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
+    <br />
 </div>

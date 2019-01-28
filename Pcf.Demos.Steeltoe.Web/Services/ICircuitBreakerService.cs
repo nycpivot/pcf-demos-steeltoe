@@ -7,5 +7,6 @@ namespace Pcf.Demos.Steeltoe.Web.Services
     public interface ICircuitBreakerService
     {
         Task<IEnumerable<ProductViewModel>> GetCustomerWishlist();
+        void Crash();
     }
 }

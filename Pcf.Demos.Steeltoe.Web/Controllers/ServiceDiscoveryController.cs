@@ -3,7 +3,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Options;
 using Pcf.Demos.Steeltoe.Web.Services;
 using Steeltoe.Extensions.Configuration.CloudFoundry;
+using System;
 using System.Collections.Generic;
+using System.Text;
 
 namespace Pcf.Demos.Steeltoe.Web.Controllers
 {
@@ -43,6 +45,20 @@ namespace Pcf.Demos.Steeltoe.Web.Controllers
             //ViewBag.ServerName = serviceOptions.ServerName;
 
             return View();
+        }
+
+        public void Delete()
+        {
+            var bytes3 = Encoding.UTF8.GetBytes("3...");
+            var bytes2 = Encoding.UTF8.GetBytes("2...");
+            var bytes1 = Encoding.UTF8.GetBytes("1");
+
+            Console.WriteLine("WARNING: THIS APP WILL SELF-DESTRUCT IN...");
+            Console.OpenStandardError().Write(bytes3, 0, bytes3.Length);
+            Console.OpenStandardError().Write(bytes2, 0, bytes2.Length);
+            Console.OpenStandardError().Write(bytes1, 0, bytes1.Length);
+
+            discoveryService.Crash();
         }
     }
 }

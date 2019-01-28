@@ -8,5 +8,7 @@ namespace Pcf.Demos.Steeltoe.Api.Services
         Task<IEnumerable<Domain.Customers.Product>> GetWishlist();
 
         Task<IEnumerable<Domain.Products.Product>> GetProducts();
+
+        void Crash();
     }
 }

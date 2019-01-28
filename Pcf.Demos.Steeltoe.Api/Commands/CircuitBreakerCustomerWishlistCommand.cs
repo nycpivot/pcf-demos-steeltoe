@@ -44,5 +44,10 @@ namespace Pcf.Demos.Steeltoe.Api.Commands
 
             return wishlist;
         }
+
+        public void Crash()
+        {
+            circuitBreakerCustomerWishlistService.Crash();
+        }
     }
 }

@@ -19,5 +19,10 @@ namespace Pcf.Demos.Steeltoe.Web.Controllers
 
             return View();
         }
+
+        public void Delete()
+        {
+            circuitBreakerService.Crash();
+        }
     }
 }

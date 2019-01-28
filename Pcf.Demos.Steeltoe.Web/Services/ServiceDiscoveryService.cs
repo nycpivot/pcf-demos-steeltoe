@@ -30,5 +30,10 @@ namespace Pcf.Demos.Steeltoe.Web.Services
 
             return appOptions;
         }
+
+        public void Crash()
+        {
+            http.DeleteAsync(String.Empty);
+        }
     }
 }

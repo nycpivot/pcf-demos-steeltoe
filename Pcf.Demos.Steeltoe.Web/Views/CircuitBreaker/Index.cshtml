@@ -1,4 +1,21 @@
-﻿<h2>Circuit Breaker</h2>
+﻿<script type="text/javascript">
+    $(document).ready(function (){
+        $('#crash').click(function () {
+            $.ajax({
+                method: "get",
+                url: "/circuitbreaker/delete",
+                success: function (data) {
+                    alert("Unable to get your wishlist. Loading all products...");
+                    location.reload();
+                }
+            });
+        })
+    });
+</script>
+
+<h2>Circuit Breaker</h2>
+
+<!--<a id="crash" href="#">Crash</a>-->
 
 <table class="table table-striped">
     @foreach (var item in ViewBag.Products)

@@ -40,5 +40,10 @@ namespace Pcf.Demos.Steeltoe.Api.Services
 
             return model;
         }
+
+        public void Crash()
+        {
+            http.DeleteAsync(string.Empty);
+        }
     }
 }

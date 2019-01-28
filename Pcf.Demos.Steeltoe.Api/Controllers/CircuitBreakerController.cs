@@ -15,12 +15,21 @@ namespace Pcf.Demos.Steeltoe.Api.Controllers
             this.circuitBreakerCustomerWishlistCommand = circuitBreakerCustomerWishlistCommand;
         }
 
+        [HttpGet]
         public IActionResult Get()
         {
             var products = circuitBreakerCustomerWishlistCommand
                 .GetCustomerWishlist().Result;
 
             return Ok(products);
+        }
+
+        [HttpDelete]
+        public IActionResult Delete()
+        {
+            circuitBreakerCustomerWishlistCommand.Crash();
+
+            return NoContent();
         }
     }
 }
